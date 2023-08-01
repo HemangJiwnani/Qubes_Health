@@ -162,7 +162,7 @@ function fetchPdfUrl1(bucket_name, object_key) {
 // Function to update the href attribute of the anchor link
 async function updatePdfLink() {
   const pdfLinkElement = document.getElementById('pdfLink');
-  const pdfUrl = await fetchPdfUrl1("qubesbillsystem","bill_1.pdf");
+  const pdfUrl = await fetchPdfUrl1("qubesbillsystem","policy1.pdf");
   console.log("Me " + pdfUrl);
   pdfLinkElement.href = pdfUrl;
 }
