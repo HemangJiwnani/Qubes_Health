@@ -1,0 +1,294 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 160px;
+    /* align-items: center; */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #0077B5;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="text"].Login_in,
+  input[type="password"].Login_pass {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  input[type="submit"] {
+    /* background-color: #0077B5; */
+    /* color: #000000; */
+    padding: 10px 20px;
+    /* border: none; */
+    width: 150px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* input[type="submit"]:hover {
+    background-color: #005d91;
+  } */
+
+  .logo{
+    margin-left: 100px;
+    width: 200px;
+    margin-right: 50%
+  }
+
+  .container-pers{
+    max-width: 94vi;
+    height: 214px;
+    margin: 0 auto;
+    margin-top: 160px;
+    margin-top: 2%;
+    background-color: #acacacc7;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .container-lower {
+    margin-top: 10px;
+    margin-right: 31px;
+    margin-left: 31px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+  }
+
+.container-lower-left {
+    max-width: 500vi;
+    background-color: #acacacc7;
+    flex: 2;
+    border-radius: 5px;
+    margin-right: 5px;
+    /* Add any additional styling for the left section */
+}
+
+.container-lower-right {
+    background-color: #acacacc7;
+    flex: 1.2;
+    height: 500px;
+    margin-left: 5px;
+    border-radius: 5px;
+    /* Add any additional styling for the right section */
+}
+
+
+.submit-button{
+  /* justify-content: flex-start; */
+  background-color: #000000;
+  color: #ffffff;
+  z-index: 2;
+  padding: 10px 20px;
+  border: none;
+  margin-left: 350px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-container {
+  max-width: 97vi;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-button {
+  margin: 0 10px;
+}
+
+.reject-button{
+  /* border-color: black; */
+  color: black;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 6px solid #000;
+  margin: 0 10px;
+}
+
+.submit-button:hover{
+  background-color: green;
+  color: white;
+}
+
+.reject-button:hover{
+  background-color: red;
+  color: white
+}
+
+.Total-e{
+  /* text-align: flex-start; */
+  margin-top: -30px;
+  margin-left: 30px;
+}
+
+.Total-e-amount{
+  font-weight: bold;
+  margin-top: -33px;
+  margin-left: 280px;
+}
+
+.heading-top{
+  color: rgb(0, 0, 0);
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.heading-top-arr{
+  padding-left: 20px;
+}
+
+.heading-top-pat{
+  padding-left: 20px;
+}
+
+.heading-top-ipd{
+  padding-left: 400px;
+  margin-top: -140px;
+}
+
+.heading-top-uhd{
+  padding-left: 400px;
+}
+
+.heading-top-doa{
+  padding-left: 650px;
+  margin-top: -140px;
+}
+
+.heading-top-dod{
+  padding-left: 650px;
+  /* margin-top: -140px; */
+}
+
+.rah{
+  padding-left: 870px;
+  margin-top: -140px;
+}
+
+.req_am{
+  width: 31%;
+  padding: 10px;
+  border: 2px solid black;
+  background-color: transparent;
+  border-radius: 4px;
+  margin-top: -900vi;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.aab{
+  padding-left: 1070px;
+  margin-top: -111px;
+}
+
+.apa{
+  width: 55%;
+  padding: 10px;
+  border: 2px solid black;
+  background-color: transparent;
+  border-radius: 4px;
+  margin-top: -900vi;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.bill{
+  margin-left: 870px;
+  margin-top: -10px;
+}
+
+.billdates{
+  margin-top: -40px;
+  margin-left: 100px;
+}
+
+table, th, td {
+  border:1px solid black;
+}
+
+.estimate{
+  background-color: white;
+  width: 100%
+}
+
+table {
+  width: 800px;
+  border-collapse: collapse;
+  margin: 0 auto; /* Center alignment */
+}
+
+#table-container {
+  max-height: 350px; /* Specify the desired height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+table th:nth-child(2),
+table td:nth-child(2) {
+  padding-left: 200px; /* Add left padding to the second column */
+}
+
+table th,
+table tr,
+table td {
+  border: none; /* Remove borders */
+  padding: 8px;
+  text-align: center;
+}
+
+table input[type="text"] {
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle; /* Vertically align the text */
+}
+
+#totals-container {
+  margin-top: 20px; /* Add some margin to create space between the main table and the totals table */
+  text-align: center; /* Center the totals table */
+}
+
+#totals-table {
+  margin: 0 auto; /* Center the totals table */
+  width: 400px; /* Specify the desired width */
+}
+
+.table-container #my-table-total {
+  margin-top: 10px;
+}
+
+table th:nth-child(2) #my-table-total,
+table td:nth-child(2) #my-table-total{
+  padding-left: -200px; /* Add left padding to the second column */
+}
+
+.Total_C{
+  padding-left: 20px;
+}
+
+.amount{
+  margin-top: -33px;
+  padding-left: 400px;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <!--Container :- 1 With Details-->
+        <div class="container-pers">
+            <h2 class="heading-top">Patient Details</h2>
+            <!--Adding Hospital Name-->
+            <div class="heading-top-arr">
+                <h4> Name of Hospital </h4>
+                <p id="Name_Hospital" style="margin-top: -10px;"></p>
+            </div>
+
+            <!--Adding Patient Name-->
+            <div class="heading-top-pat">
+                <h4> Name of Patient </h4>
+                <p id="Name_Patient" style="margin-top: -10px;"></p>
+            </div>
+
+            <!--Adding IPD Name-->
+            <div class="heading-top-ipd">
+                <h4> Company Name </h4>
+                <p id="ipd_n" style="margin-top: -10px;"></p>
+            </div>
+
+            <!--Adding UHID Name-->
+            <div class="heading-top-uhd">
+                <h4> Employee Name </h4>
+                <p id="uhid_n" style="margin-top: -10px;"></p>
+            </div>
+
+
+            <!--Adding Date of Admission-->
+            <div class="heading-top-doa">
+                <h4> Upload Time </h4>
+                <p id="doa_n" style="margin-top: -10px;"></p>
+            </div>
+
+            <!--Adding Date of Discharge-->
+            <div class="heading-top-dod">
+                <h4> Complete Time </h4>
+                <p id="dod_n" style="margin-top: -10px;"></p>
+            </div>
+
+            <!-- Request Amount Button -->
+            <div class="rah">
+                <h4>Requested Amt</h4>
+                <input type="text"  class="req_am" id="Requested_Amount" disabled></input>
+            </div>
+
+             <!-- Approved Amount Button -->
+             <div class="aab">
+                <h4>Approved Amt</h4>
+                <input type="number" disabled value="₹ " class="apa" id="Approved_Amount"></input>
+            </div>
+
+            <!-- Billing Date -->
+            <div class="bill">
+                <h4>Reference Id:  </h4>
+                <p id="bill_d" class="billdates"></p>
+            </div>
+
+        </div>
+
+        <!--Container :- 2 With 2 Section-->
+        <div class="scrollable-container">
+            <div class="container-lower">
+                <div class="container-lower-left">
+                    <div style="display: flex;justify-content: space-between;align-items: center;">
+                        <!-- <div  id="buttonBox"> -->
+                        
+                        <h2 class="heading-top" style="margin-top: -5px;">Estimate Details</h2>
+                        <div class="button-box" id="est">
+                            <a href="" target="_blank" id="pdfLinkpol"><p><b>Open Policy</b></p></a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="estimate">
+        
+                    </div>
+                    <div id="table-container" class="Table-data">
+                    </div>
+                    <table id="my-table-total" class="Total-Table" style="width:100%;"></table>
+                </div>
+                <div class="container-lower-right" style="overflow: auto;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <h2 class="heading-top" style="margin-top: -5px;">Policy Details</h2>
+                    <div class="button-box" id="buttonBox">
+                        <a href="" target="_blank" id="pdfLink"><p><b>Open Policy</b></p></a>
+                    </div>
+                    </div>
+                    
+                    <!-- <button><a href="https://qubesbillsystem.s3.amazonaws.com/bill_1.pdf?response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARWQZ4LWKKXND7W75%2F20230730%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20230730T203749Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=0ba94a79cd682cd6b2c32138f5e2292ff0a54c7b2adc0478697926605fb367ea" target="_blank">Click Me</a></button> -->
+                    
+                    <!-- <iframe src="https://qubesbillsystem.s3.amazonaws.com/bill_1.pdf?response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARWQZ4LWKKXND7W75%2F20230730%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20230730T203749Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=0ba94a79cd682cd6b2c32138f5e2292ff0a54c7b2adc0478697926605fb367ea" width="100%" height="600"></iframe> -->
+                    <!-- <h2 class="heading-top" style="margin-top: -5px;">Policy Details<img class="Ploicy" src="./pdf.png" height="30px" width="30px"/></h2> -->
+                    
+                    <div class="policy-row">
+                        <h3 class="Total_C">Insurer</h3>
+                        <p class="amount" id="Total_C">Zuno General Insurance Limited</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">Policy No.</h3>
+                        <p class="amount" id="Total_C">EGIC0110239300000</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">Policy Period</h3>
+                        <p class="amount" id="Total_C">15th Apr 2023 to 14th Apr 2024</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">TPA</h3>
+                        <p class="amount" id="Total_C">East West Assist TPA Pvt. Ltd</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">Family Definition</h3>
+                        <p class="amount" id="Total_C">Employee + 5 Dependants (Spouse + 2 Dependent Children up to 25 years + 2 Dependent Parents/Parents in law cross selection is not permitted)</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">Sum Insured Family Floater - Executive/Junior Associate</h3>
+                        <p class="amount" id="Total_C">INR 200,000</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">Sum Insured Family Floater - Associate/Assistant Manager</h3>
+                        <p class="amount" id="Total_C">INR 250,000</p>
+                    </div>
+                    <!-- Add more rows for other Sum Insured Family Floater categories -->
+                    <div class="policy-row">
+                        <h3 class="Total_C">Pre existing diseases</h3>
+                        <p class="amount" id="Total_C">Yes. Covered from Day One</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">Waiting Periods</h3>
+                        <p class="amount" id="Total_C">Not Applicable</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">Coverage</h3>
+                        <p class="amount" id="Total_C">Inpatient hospitalization Active treatment with minimum 24 hours hospitalization with exception of certain Day care expenses</p>
+                    </div>
+                    <div class="policy-row">
+                        <h3 class="Total_C">PrePost Hospitalisation Expenses</h3>
+                        <p class="amount" id="Total_C">Yes. Pre 30 days, Post 60 days</p>
+                    </div>
+                    <!-- Add more rows for other properties in the Policy_Detail object -->
+                    <!-- Example:
+                    <div class="policy-row">
+                        <h3 class="Total_C">Property Name</h3>
+                        <p class="amount" id="Total_C">Property Value</p>
+                    </div>
+                    -->
+                    <div class="policy-row">
+                        <h3 class="Total_C">Exclusions</h3>
+                        <div id="exclusions-container" class="amount">
+                            <p>Injury / disease directly or indirectly caused by or arising from or attributable to War, invasion, Act of Foreign enemy, War like operations (whether war be declared or not)</p>
+                            <p>Circumcision unless necessary for treatment of a disease not excluded hereunder or as may be necessitated due to an accident</p>
+                            <p>Vaccination or inoculation change of life or cosmetic or aesthetic treatment of any description, such as correction of eye sight plastic surgery other than as may be necessitated due to an accident or as apart of any illness</p>
+                            <!-- Add more exclusion points as per the Policy_Detail object -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <input type="submit" id="reject-btn" value="Reject" class="reject-button">
+            <input type="submit" id="approve-btn" value="Approve" class="submit-button">
+        </div>
+        <p class="Total-e"><b>Total Estimate</b></p>
+        <p id="dynamic-value" class="Total-e-amount"></p>
+    </form>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

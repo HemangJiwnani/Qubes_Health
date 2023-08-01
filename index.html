@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="iassist.png" alt="logo" class="logo">
+        </div>
+
+        <h2>Login to Your Account</h2>
+        <form id="login-form" method="post">
+            <label for="username">Email or Phone:</label>
+            <input type="text" class="Login_in" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" class="Login_pass" id="password" name="password" required>
+
+            <input type="submit" value="Sign In">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Hardcoded username-password combinations
+            var hardcodedUsers = [
+                { username: "admin", password: "iail@3210" },
+                { username: "developer", password: "iaildev@3210" },
+                { username: "tester", password: "iailtest@3210" }
+            ];
+
+            // Retrieve user input
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check if the entered credentials match any hardcoded user
+            var isCredentialsValid = hardcodedUsers.some(function (user) {
+                return user.username === username && user.password === password;
+            });
+
+            if (isCredentialsValid) {
+                // alert("Login successful!");
+                // Redirect to upload.html
+                window.location.href = "pending_bill.html";
+            } else {
+                alert("Invalid username or password. Please try again.Else Contact Admin");
+                // Clear input fields or perform other actions
+            }
+        });
+
+    </script>
+</body>
+
+</html>
