@@ -589,6 +589,7 @@ var jsonData;
     const res = await fetch("https://pre-prod.qubehealth.com/api/iAssist/claimApprovalWebhook", requestOptions)
     const d = await res.text()
     console.log(d)
+    alert("Status: 200 Data Pushed To Qubes Server");
   })
 
   document.getElementById("reject-btn")?.addEventListener("click", (e) => {
