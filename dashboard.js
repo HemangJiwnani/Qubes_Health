@@ -162,7 +162,7 @@ function fetchPdfUrl1(bucket_name, object_key) {
 // Function to update the href attribute of the anchor link
 async function updatePdfLink() {
   const pdfLinkElement = document.getElementById('pdfLink');
-  const pdfUrl = await fetchPdfUrl1("qubesbillsystem","policy1.pdf");
+  const pdfUrl = await fetchPdfUrl1("qubesbillsystem","bill_1.pdf");
   console.log("Me " + pdfUrl);
   pdfLinkElement.href = pdfUrl;
 }
@@ -567,17 +567,36 @@ var jsonData;
     // Get the current date and time
     const currentDateTime = new Date();
 
-    // Format the date and time in the desired format
-    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+    for (const obj of jsonData) {
+      if (obj.approved) {
+        // Convert the approvedamount to a whole float
+        obj.approvedamount = parseFloat(obj.approvedamount);
+      }
+    }
+
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', seconds: 'numeric' };
     const formattedDateTime = currentDateTime.toLocaleString(undefined, options);
 
     // Print the formatted date and time
     updateData(data["ReferenceId"], formattedDateTime);
+    jsonData = jsonData.map(o => {
+      return {
+        ...o,
+        description: o.Description,
+        approved: null,
+        requestedamount: o.requestedAmount,
+        pushintime: o.pushInTime,
+        approvedamount: o.approvedAmount,
+        completetime: o.completeTime,
+        eamount: o.eAmount,
+        patient: o.Patientn,
+      }
+    })
 
     const finalData = {
+      status: "APPROVED",
       patientDetails: data,
-      estimateDetails: jsonData,
-      policyDetails: Policy_Detail,
+      estimateDetails: jsonData
     }
 
     var requestOptions = {
@@ -594,18 +613,45 @@ var jsonData;
 
   document.getElementById("reject-btn")?.addEventListener("click", (e) => {
     e.preventDefault();
+
+    for (const obj of jsonData) {
+      if (obj.approved) {
+        // Convert the approvedamount to a whole float
+        obj.approvedamount = parseFloat(obj.approvedamount);
+      }
+    }
     
     console.log(!jsonData.every(o => !o.approved))
     if(!jsonData.every(o => o.approved == false)){
       alert("please reject all line items first.")
       return;
     }
+    jsonData = jsonData.map(o => {
+      return {
+        ...o,
+        description: o.Description,
+        approved: null,
+        requestedamount: o.requestedAmount,
+        pushintime: o.pushInTime,
+        approvedamount: o.approvedAmount,
+        completetime: o.completeTime,
+        eamount: o.eAmount,
+        patient: o.Patientn,
+      }
+    })
+
+    const finalData = {
+      status: "REJECTED",
+      patientDetails: data,
+      estimateDetails: jsonData,
+    }
+
     console.log("asfasf", jsonData)
     const text = prompt("reject?")
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: raw,
+      body: finalData,
       redirect: 'follow'
     };
     
