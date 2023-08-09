@@ -8,7 +8,7 @@ console.log(data)
 
 //Changing The Total Amount Value
 var dynamicValueElement = document.getElementById("dynamic-value");
-var dynamicValue = "₹ " + 2000;
+var dynamicValue = "₹ " + data['Eamount'];
 dynamicValueElement.innerHTML = dynamicValue;
 
 
