@@ -27,7 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.appendChild(linkIcon);
         
                 cell.appendChild(link);
-              } else if (isNaN(bill[key])) {
+              }
+              else if(key == 'PushInTime'){
+                cell.textContent = bill[key].replace("GMT", "").slice(0, -4);
+              }
+              else if (isNaN(bill[key])) {
                 cell.textContent = bill[key];
               } else {
                 cell.textContent = 'Pending';
