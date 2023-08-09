@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const data = {};
-const keys = ['FileName', 'PushInTime', 'CompanyId', 'EmployeeName', 'ReferenceId', 'CompeleTime', 'Eamount', 'Flink', 'HospitalName', "Patientn", "Qreference"];
+const keys = ['FileName', 'PushInTime', 'CompanyId', 'EmployeeName', 'ReferenceId', 'CompeleTime', 'Eamount','Ramount', 'Flink', 'HospitalName', "Patientn", "Qreference"];
 keys.forEach(k => {
   data[k] = params.get(k);
 })
@@ -31,7 +31,6 @@ var ipd_nam = document.getElementById("ipd_n");
 var ipd = data["CompanyId"]
 ipd_nam.textContent = ipd
 
-
 //Adding UHD Number
 var uhd_n = document.getElementById("uhid_n");
 var uhd = data["EmployeeName"]
@@ -39,7 +38,8 @@ uhd_n.textContent = uhd
 
 //Adding Date of Admission
 var doa = document.getElementById("doa_n");
-var doa_f = data["PushInTime"].replace("GMT", "").slice(0, -4);
+var doa_f = data["PushInTime"]
+
 doa.textContent = doa_f
 
 //Adding Date of Admission
@@ -51,7 +51,7 @@ dod.textContent = dod_f
 //Adding Requested Amount
 document.addEventListener('DOMContentLoaded', function () {
   var button = document.getElementById('Requested_Amount');
-  button.value = "₹ " + 20000;
+  button.value = "₹ " + data['Ramount'];
 });
 
 
