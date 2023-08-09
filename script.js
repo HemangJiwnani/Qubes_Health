@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 linkIcon.innerHTML = '➦'; // Emoji for the link
                 const link = document.createElement('a');
                 const queries = new URLSearchParams(bill)
-                link.href = "/dashboard.html?" + queries;
+                link.href = "/Qubes_Health/dashboard.html?" + queries;
                 link.target = '_blank';
                 link.appendChild(linkIcon);
         
