@@ -3,17 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     var jsonData = {}
     function get_extracted_data(){
       var url = "https://mnyea93s8f.execute-api.ap-south-1.amazonaws.com/Production-Qeury";
-      console.log("url",url);
+      // console.log("url",url);
       fetch(url)
         .then(response => response.json())
         .then(data => {
             jsonData = data.files;
-            console.log(jsonData);
+            // console.log(jsonData);
      console.log(typeof(jsonData));
       jsonData.forEach((bill) => {
             const row = document.createElement('tr');
 
-            const keys = ['FileName', 'PushInTime', 'CompanyId', 'EmployeeName', 'ReferenceId','Qreference', 'CompeleTime', 'Eamount', ,"HospitalName","Patientn", 'Flink'];
+            const keys = ['FileName', 'PushInTime', 'CompanyId', 'EmployeeName', 'ReferenceId','Qreference', 'CompeleTime', 'Ramount', ,"HospitalName","Patientn", 'Flink'];
             keys.forEach((key) => {
               const cell = document.createElement('td');
 
@@ -22,24 +22,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 linkIcon.innerHTML = '➦'; // Emoji for the link
                 const link = document.createElement('a');
                 const queries = new URLSearchParams(bill)
-                link.href = "/Qubes_Health/dashboard.html?" + queries;
+                link.href = "/dashboard.html?" + queries;
                 link.target = '_blank';
                 link.appendChild(linkIcon);
         
                 cell.appendChild(link);
-              }
+              } 
               else if(key == 'PushInTime'){
-                cell.textContent = bill[key].replace("GMT", "").slice(0, -4);
+                // console.log(bill[key]);
+                cell.textContent = bill[key].replace("GMT", "")
               }
               else if (isNaN(bill[key])) {
                 cell.textContent = bill[key];
-              } else {
+                
+              } 
+              else if(bill[key] != null){
+                cell.textContent = bill[key];
+              }
+              else {
+                // console.log(key);
+                // console.log(bill[key]);
                 cell.textContent = 'Pending';
               }
-        
               row.appendChild(cell);
             });
-        
             billTableBody.appendChild(row);
           })
         })
