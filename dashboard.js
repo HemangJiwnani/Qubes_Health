@@ -6,6 +6,59 @@ keys.forEach(k => {
 })
 console.log(data)
 
+async function getCurrentIST() {
+  // Get the current UTC time
+  const currentUtcTime = new Date();
+
+  // Calculate the time difference for IST (UTC+5:30)
+  const istTimeDifference = 5 * 60 + 30; // in minutes
+
+  // Convert UTC time to IST
+  const istTime = new Date(currentUtcTime.getTime() + istTimeDifference * 60 * 1000);
+
+  // Format IST time as a string (YYYY-MM-DD HH:MM AM/PM)
+  const istTimeString = istTime.toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    hour12: true
+  });
+
+  return istTimeString;
+}
+
+async function updateDatabase(referenceId) {
+  const apiUrl = "https://xspw9bzvhb.execute-api.ap-south-1.amazonaws.com/demo_prod"; // Replace with your actual API URL
+  
+  const completeTime = await getCurrentIST();
+  
+  const data = {
+    reference_id: referenceId,
+    comptim: completeTime
+  };
+  
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  
+  try {
+    const response = await fetch(apiUrl, options);
+    const result = await response.json();
+    
+    if (result) {
+      console.log("Data updated successfully.");
+      return true;
+    } else {
+      console.log("Data update failed.");
+      return false;
+    }
+  } catch (error) {
+    console.error("Error updating data:", error);
+    return false;
+  }
+}
 //Changing The Total Amount Value
 var dynamicValueElement = document.getElementById("dynamic-value");
 var dynamicValue = "₹ " + data['Eamount'];
@@ -272,10 +325,10 @@ var jsonData;
 
     // Column 2: Approval (with two checkboxes)
     var approvalCell = document.createElement('td');
-    var checkbox1 = document.createElement('input');
-    checkbox1.type = 'checkbox';
-    checkbox1.name = 'approval';
-    checkbox1.classList.add("approve-checkbox")
+  var checkbox1 = document.createElement('input');
+  checkbox1.type = 'checkbox';
+  checkbox1.name = 'approval';
+  checkbox1.classList.add("approve-checkbox")
     checkbox1.addEventListener("change", (e) => {
       console.log(e.target.value)
       // Object.assign(jsonData[index], {
@@ -565,7 +618,8 @@ var jsonData;
   document.getElementById("approve-btn")?.addEventListener("click", async (e) => {
     e.preventDefault();
     // Get the current date and time
-    const currentDateTime = new Date();
+    updateDatabase(obj.referenceId)
+    obj.completeTime = getCurrentIST()
 
     for (const obj of jsonData) {
       if (obj.approved) {
@@ -574,8 +628,7 @@ var jsonData;
       }
     }
 
-    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', seconds: 'numeric' };
-    const formattedDateTime = currentDateTime.toLocaleString(undefined, options);
+    
 
     // Print the formatted date and time
     updateData(data["ReferenceId"], formattedDateTime);
@@ -584,11 +637,11 @@ var jsonData;
         ...o,
         description: o.Description,
         approved: null,
-        requestedamount: o.requestedAmount,
-        pushintime: o.pushInTime,
-        approvedamount: o.approvedAmount,
-        completetime: o.completeTime,
-        eamount: o.eAmount,
+        // requestedAmount: o.requestedAmount,
+        // pushintime: o.pushInTime,
+        // approvedamount: o.approvedAmount,
+        completeTime: o.completeTime,
+        // eamount: o.eAmount,
         patient: o.Patientn,
       }
     })
