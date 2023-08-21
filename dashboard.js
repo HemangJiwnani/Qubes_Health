@@ -631,7 +631,7 @@ var jsonData;
     
 
     // Print the formatted date and time
-    updateData(data["ReferenceId"], formattedDateTime);
+    //updateData(data["ReferenceId"], formattedDateTime);
     jsonData = jsonData.map(o => {
       return {
         ...o,
