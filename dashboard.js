@@ -618,7 +618,7 @@ var jsonData;
   document.getElementById("approve-btn")?.addEventListener("click", async (e) => {
     e.preventDefault();
     // Get the current date and time
-    updateDatabase(obj.referenceId)
+    // updateDatabase(obj.referenceId) Commented For Reference
     obj.completeTime = getCurrentIST()
 
     for (const obj of jsonData) {
