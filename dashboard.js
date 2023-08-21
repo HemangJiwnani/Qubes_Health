@@ -619,7 +619,7 @@ var jsonData;
     e.preventDefault();
     // Get the current date and time
     // updateDatabase(obj.referenceId) Commented For Reference
-    obj.completeTime = getCurrentIST()
+    //obj.completeTime = getCurrentIST()
 
     for (const obj of jsonData) {
       if (obj.approved) {
