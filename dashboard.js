@@ -646,7 +646,7 @@ var jsonData;
         patient: o.Patientn,
       }
     })
-    console.log("I reached Here")
+    
     const finalData = {
       status: "APPROVED",
       patientDetails: data,
@@ -659,9 +659,12 @@ var jsonData;
       body: JSON.stringify(finalData),
       redirect: 'follow'
     };
+    console.log("I reached Here")
     const res = await fetch("https://pre-prod.qubehealth.com/api/iAssist/claimApprovalWebhook", requestOptions)
+    console.log("I reached Here")
     const d = await res.text()
     console.log(d)
+    
     alert("Status: 200 Data Pushed To Qubes Server");
   })
 
