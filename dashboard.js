@@ -616,6 +616,7 @@ var jsonData;
   myHeaders.append("Content-Type", "application/json");
 
   document.getElementById("approve-btn")?.addEventListener("click", async (e) => {
+    console.log("I reached Here")
     e.preventDefault();
     // Get the current date and time
     // updateDatabase(obj.referenceId) Commented For Reference
